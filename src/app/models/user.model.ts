@@ -7,6 +7,7 @@ export interface User {
   url: string;
   html_url: string;
   followers_url: string;
+  following_url?: string;
   gists_url: string;
   starred_url: string;
   subscriptions_url: string;
@@ -16,7 +17,20 @@ export interface User {
   received_events_url: string;
   type: string;
   site_admin: boolean;
-  score: number;
+  score?: number;
+  name?: string;
+  company?: string | null;
+  blog?: string;
+  location?: string;
+  email?: string;
+  hireable?: boolean;
+  bio?: string | null;
+  public_repos?: number;
+  public_gists?: number;
+  followers?: number;
+  following?: number;
+  created_at?: string;
+  updated_at?: string;
 }
 
 export interface SearchResult {

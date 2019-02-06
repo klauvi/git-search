@@ -1,4 +1,27 @@
-<div class="spinner" *ngIf="loading">Spinning</div>
-<mat-card *ngFor="let user of users">
-  {{ user | json }}
-</mat-card>
+<div class="spinner" *ngIf="loading">Loading...</div>
+<button mat-raised-button routerLink="/">New Search</button>
+<ng-container *ngIf="maxPage > 1">
+  <button mat-button color="primary" (click)="firstPage()">First</button>
+  <button mat-button color="primary" (click)="prevPage()" [disabled]="prevButtonDisabled()">
+    Prev
+  </button>
+  <ng-container *ngIf="maxPage > 1">
+    <button
+      mat-button
+      color="primary"
+      *ngFor="let p of pages"
+      (click)="pageNumber(p)"
+      [disabled]="page === 'p'"
+    >
+      {{ p }}
+    </button>
+  </ng-container>
+  <button mat-button color="primary" (click)="nextPage()" [disabled]="nextButtonDisabled()">
+    Next
+  </button>
+  <button mat-button color="primary" (click)="lastPage()">Last</button>
+</ng-container>
+Total number of results: {{ totalCount }}
+<ng-container *ngIf="users.length > 0">
+  <app-user *ngFor="let user of users" [user]="user"></app-user>
+</ng-container>

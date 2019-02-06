@@ -1,6 +1,6 @@
 <div class="container">
-  <form>
-    <mat-form-field class="searchbox" (ngSubmit)="navigate()">
+  <form (ngSubmit)="navigate()">
+    <mat-form-field class="searchbox">
       <input
         matInput
         placeholder="Search Github users"
@@ -9,7 +9,7 @@
         [(ngModel)]="searchTerm"
       />
     </mat-form-field>
-    <button class="search-button" mat-raised-button type="submit" (click)="navigate()">
+    <button class="search-button" mat-raised-button type="submit">
       Search
     </button>
   </form>

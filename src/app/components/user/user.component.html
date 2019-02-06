@@ -1,3 +1,6 @@
-<p>
-  user works!
-</p>
+<mat-card *ngIf="user">
+  <img [src]="user.avatar_url" class="avatar" alt="Profile" />
+  <div class="bio" *ngIf="user.bio">user.bio</div>
+  Followers: {{ user.followers }}
+</mat-card>
+<div class="spinner" *ngIf="!user">Loading...</div>
