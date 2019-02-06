@@ -1,6 +1,12 @@
 <mat-card *ngIf="user">
-  <img [src]="user.avatar_url" class="avatar" alt="Profile" />
-  <div class="bio" *ngIf="user.bio">user.bio</div>
-  Followers: {{ user.followers }}
+  <div>
+    <img [src]="user.avatar_url | safeUrl" class="avatar" alt="Profile" />
+    <div class="info">
+      <div class="name">Name: {{ user.name }}</div>
+      <div class="bio" *ngIf="user.bio">Bio: {{ user.bio }}</div>
+      <div class="followers">Followers: {{ user.followers }}</div>
+    </div>
+  </div>
+  <a [href]="user.html_url | safeUrl">Go to github page</a>
 </mat-card>
 <div class="spinner" *ngIf="!user">Loading...</div>

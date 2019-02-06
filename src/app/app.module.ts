@@ -34,9 +34,10 @@ const materialModules = [
 import { SearchComponent } from './containers/search/search.component';
 import { UsersComponent } from './containers/users/users.component';
 import { UserComponent } from './components/user/user.component';
+import { SafeUrlPipe } from './pipes/safe-url.pipe';
 
 @NgModule({
-  declarations: [AppComponent, SearchComponent, UsersComponent, UserComponent],
+  declarations: [AppComponent, SearchComponent, UsersComponent, UserComponent, SafeUrlPipe],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -108,9 +108,11 @@ export class UsersComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.subscriptions.push(
       this.route.queryParams.subscribe((params: Params) => {
+        console.log(params);
         this.q = params.q ? params.q : '';
         this.page = params.page ? params.page : 1;
-        this.perPage = params.per_page ? params.per_page : '10';
+        this.perPage = params.hasOwnProperty('per_page') ? params.per_page : '10';
+        console.log(this.perPage);
         this.search();
       })
     );

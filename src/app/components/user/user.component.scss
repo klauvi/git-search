@@ -1,0 +1,16 @@
+.avatar {
+  max-width: 50px;
+}
+.info {
+  display: flex;
+  flex-direction: column;
+}
+.name {
+  font-weight: 400;
+}
+.bio {
+  color: lightslategray;
+}
+.followers {
+  font-weight: 100;
+}
