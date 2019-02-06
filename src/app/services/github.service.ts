@@ -10,11 +10,11 @@ export class GithubService {
   API_URL = 'https://api.github.com/search/users';
   constructor(private http: HttpClient) {}
 
-  getUsers(q: string, perPage = 10, page = 1): Observable<SearchResult> {
+  getUsers(q: string, perPage: string, page: string): Observable<SearchResult> {
     const params = {
       q,
-      page: String(page),
-      per_page: String(perPage)
+      page,
+      per_page: perPage
     };
     return this.http.get<SearchResult>(this.API_URL, { params });
   }
