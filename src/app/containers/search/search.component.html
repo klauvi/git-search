@@ -1,3 +1,21 @@
-<p>
-  search works!
-</p>
+<div class="container">
+  <form>
+    <mat-form-field class="searchbox" (ngSubmit)="navigate()">
+      <input
+        matInput
+        placeholder="Search Github users"
+        type="search"
+        name="search"
+        [(ngModel)]="searchTerm"
+      />
+    </mat-form-field>
+    <button class="search-button" mat-raised-button type="submit" (click)="navigate()">
+      Search
+    </button>
+  </form>
+  <mat-form-field class="per-page">
+    <mat-select [(value)]="perPage" placeholder="Results per page">
+      <mat-option *ngFor="let count of pageOptions" [value]="count">{{ count }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>

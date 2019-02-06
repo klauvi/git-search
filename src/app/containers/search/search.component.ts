@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
+  perPage = '10';
+  searchTerm: string;
+  pageOptions = ['10', '20', '30'];
 
-  constructor() { }
+  constructor(private router: Router) {}
 
-  ngOnInit() {
+  navigate(): void {
+    this.router.navigate(['users'], {
+      queryParams: { q: this.searchTerm, per_page: this.perPage }
+    });
   }
-
+  ngOnInit() {}
 }
